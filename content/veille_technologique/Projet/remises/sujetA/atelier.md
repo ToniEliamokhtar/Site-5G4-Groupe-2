@@ -1,6 +1,6 @@
 +++
 title = "Atelier"
-weight = 3
+weight = 4
 +++
 
 Votre atelier, avec un éventuelle lien vers un repos git.
