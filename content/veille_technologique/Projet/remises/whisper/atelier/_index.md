@@ -179,7 +179,7 @@ python transcribe.py
 
 ![alt text](resultatNormalEnglish.png)
 
-> Le warning qu'on voit ici est lié au fait que Whisper utilise le CPU plutôt que le GPU. <br>
+> Le warning qu'on voit ici est lié au fait que Whisper utilise le CPU plutôt que le GPU. Normalement, Whisper préfère utiliser le GPU, car le CPU ne supporte pas efficacement le FP16.<br>
 > Normalement, Whisper détecte automatiquement le matériel disponible. Dans notre conteneur, il n'y a pas de GPU, uniquement le CPU. <br>
 > <br>
 > **Message (résumé) :** <br>
@@ -194,3 +194,13 @@ python transcribe.py
 >   - plus lents
 >   - plus précis
 >   - standard sur CPU
+
+
+Whisper est conçu pour fonctionner aussi bien sur GPU que sur CPU. Quand il n'y a pas de GPU ou qu'il n'est pas disponible, le modèle bascule automatiquement en calculs FP32 (float32) plutôt que FP16, puisque les calculs FP16 sont optimisés pour les GPU.
+
+Cette façon de s'adapter permet à Whisper d'être compatible sur tous les systèmes, au prix d'un temps de calcul un peu plus élevé.
+
+> [!info]
+> Il faut savoir qu'on peut forcer le modèle à utiliser le CPU si on 
+> veut. Pour ce faire, il suffit de lancer cette commande : <br>
+> `model = whisper.load_model("base", device="cpu")`
