@@ -617,6 +617,7 @@ ${data.text_english}
 > Et finalement, on affiche `data.text` qui est retourné par le backend, par Whisper <br>
 
 Avant de reconstruire l'image Docker et tester l'application, on revérifier que toutes nos fichiers correspondent à ceux listés ci dessous.
+Il faut savoir aussi qu'on finit par enlever HTMLResponse, puisqu'on va se concentrer sur FileResponse pour avoir la réponse exacte de la requête.
 
 ***app.py***:
 ``` bash
