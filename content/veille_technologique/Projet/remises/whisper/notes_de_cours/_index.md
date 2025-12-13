@@ -3,7 +3,7 @@ title = "Notes de cours"
 weight = 3
 +++
 
-### C'est quoi au juste, WhisperAI?
+## C'est quoi au juste, WhisperAI?
 
 WhisperAI est un système de reconnaissance automatique de la parole, développé par OpenAI. <br>
 Il a été mis en ligne sous licence *open-source* le 21 septembre 2022. 
@@ -23,7 +23,7 @@ Bien qu'il y a plusieurs plans qui donnent de plus en plus d'accès à de plus e
 
 ![alt text](WhisperPlans.png)
 
-### Entraînement
+## Entraînement
 
 Whisper a été entraîné sur **680 000 heures** de données audio, ce qui est un volume extrêmement élevé comparé aux datasets ASR (Automatic Speech Recognition) classiques. <br>
 
@@ -35,7 +35,7 @@ En fait, normalement, les ASR classique sont très souvent entraînés sur quelq
 
 <br>
 
-***Données et provenance***
+### - Données et provenance
 
 Whisper a été entraîné majoritairement sur des données qui proviennent du Web. Cela peut inclure des enregistrements audio très variées, comme :
 - Des entrevues
@@ -53,7 +53,40 @@ Voici une information résultant de l'entraînement si général de whisper:  <b
 
 <br>
 
-***Utilisations principales***
+
+### - Type de Supervision
+
+WhisperAI a été entraîné avec des données **supervisées**, mais majoritairement, il a été entraîné avec des données **faiblement supervisées**.
+
+En fait, il faut savoir que sur tous les fichiers audios sur lesquels WhisperAI a été entraîné, il avait toujours le son et le texte déjà transcrit, même si mal transcrit. Il avait toujours le point de départ et un résultat sur lequel il pouvait se comparer à la fin !
+
+La seule différence est que une partie des données de formations étaient supervisées, ce qui veut dire que les fichiers audios étaient choisies par les développeurs et le résultat en texte était déjà là, présent, parfait et vérifié par l'équipe qui s'occupait de l'entraînement de ce modèle. L'autre partie qui constitue la majorité des données provient du web, avec du texte déjà transcrit, mais pas obligatoirement bien. Il y certaines transcriptions qui pouvaient contenir des fautes.
+
+Il y a donc une différence importante entre ces deux types de données. Dans le cas des **données supervisées**, les transcriptions sont fiables et servent de référence solide pour apprendre la correspondance entre les sons et les mots. Cependant, ce type de données est long et coûteux à produire, ce qui limite fortement la quantité disponible !
+
+À l'inverse, les **données faiblement supervisées** permettent d'entraîner le modèle sur un volume beaucoup plus grand de fichiers audio ! Même si certaines transcriptions contiennent des fautes ou des imprécisions, WhisperAI est quand même capable d'apprendre à repérer des patterns récurrents dans la parole et de s'améliorer malgré les erreurs. Le modèle n'apprend donc pas seulement à recopier un texte, mais à faire des prédictions de plus en plus cohérentes à partir du signal audio, et je vais parler de comment WhisperAI arrive à transcrire les fichiers audio un peu plus tard.
+
+Ce qu'il faut **retenir** est que ce choix d'entraînement représente un compromis important :
+WhisperAI sacrifie une partie de la précision individuelle des annotations pour qu'il puisse bénéficier d'une quantité massive de données sur lesquels il peut s'entraîner. Cette approche explique en grande partie pourquoi le modèle est capable de fonctionner dans des contextes très variés, même lorsque les conditions audio ne sont pas idéales.
+
+<br>
+
+
+### - Apprentissage multitâche
+
+WhisperAI a été entraîné avec une approche différente des autres modèles de transcription intelligents, appelée **apprentissage multitâche**. Cela signifie qu'un seul modèle apprend à effectuer plusieurs tâches différentes en même temps, plutôt que d'être entraîné pour une seule tâche précise.
+
+Ce que cela sous entend et qu'on sait déjà est que, en fait, WhisperAI apprend simultanément à **transcrire la parole**, à **traduire vers l'anglais** et à **identifier la langue parlée**. Ces tâches sont liées entre elles : comprendre la langue aide à mieux transcrire, et une bonne transcription facilite la traduction ! Le modèle apprend donc à exploiter ces liens plutôt que de traiter chaque tâche de façon isolée. 
+
+Cette approche distingue WhisperAI de nombreux modèles de reconnaissance vocale plus classique, qui sont souvent entraînés pour une seule tâche ou une seule langue. <br>
+Du coup, l'apprentissage multitâche contribue au caractère généraliste de WhisperAI et prépare la transition vers son fonctionnement interne que je vais expliquer dans la section suivante !
+
+<br>
+
+
+## Fonctionnement et Performance
+
+### - Utilisations principales
 
 WhisperAI est utilisé dans de très diverse situations, il y a aussi de grandes compagnies qui s'en servent !
 
@@ -88,22 +121,6 @@ Par exemple :
     - Conversion de la voix de l'utilisateur en texte afin d'interagir et parler avec certains systèmes intelligents implémentés dans des applications
 
 <br> 
-
-
-***Type de Supervision***
-
-WhisperAI a été entraîné avec des données **supervisées**, mais majoritairement, il a été entraîné avec des données **faiblement supervisées**.
-
-En fait, il faut savoir que sur tous les fichiers audios sur lesquels WhisperAI a été entraîné, il avait toujours le son et le texte déjà transcrit, même si mal transcrit. Il avait toujours le point de départ et un résultat sur lequel il pouvait se comparer à la fin !
-
-La seule différence est que une partie des données de formations étaient supervisées, ce qui veut dire que les fichiers audios étaient choisies par les développeurs et le résultat en texte était déjà là, présent, parfait et vérifié par l'équipe qui s'occupait de l'entraînement de ce modèle. L'autre partie qui constitue la majorité des données provient du web, avec du texte déjà transcrit, mais pas obligatoirement bien. Il y certaines transcriptions qui pouvaient contenir des fautes.
-
-Il y a donc une différence importante entre ces deux types de données. Dans le cas des **données supervisées**, les transcriptions sont fiables et servent de référence solide pour apprendre la correspondance entre les sons et les mots. Cependant, ce type de données est long et coûteux à produire, ce qui limite fortement la quantité disponible !
-
-À l'inverse, les **données faiblement supervisées** permettent d'entraîner le modèle sur un volume beaucoup plus grand de fichiers audio ! Même si certaines transcriptions contiennent des fautes ou des imprécisions, WhisperAI est quand même capable d'apprendre à repérer des patterns récurrents dans la parole et de s'améliorer malgré les erreurs. Le modèle n'apprend donc pas seulement à recopier un texte, mais à faire des prédictions de plus en plus cohérentes à partir du signal audio, et je vais parler de comment WhisperAI arrive à transcrire les fichiers audio un peu plus tard.
-
-Ce qu'il faut **retenir** est que ce choix d'entraînement représente un compromis important :
-WhisperAI sacrifie une partie de la précision individuelle des annotations pour qu'il puisse bénéficier d'une quantité massive de données sur lesquels il peut s'entraîner. Cette approche explique en grande partie pourquoi le modèle est capable de fonctionner dans des contextes très variés, même lorsque les conditions audio ne sont pas idéales.
 
 
 
