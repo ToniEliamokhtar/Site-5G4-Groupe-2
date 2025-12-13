@@ -178,7 +178,87 @@ C'est d'ailleurs grâce à cette interaction constante entre l'encodeur et le d�
 
 ![alt text](whisperArchitecture.png)
 
-### Sources :
+<br>
+
+
+### Avantages techniques
+
+Whisper est utilisé pour plusieurs raisons. Il est l'outil que beaucoup d'organisations choisissent, et ce pour des raisons stratégiques :
+- WhisperAI est disponible grauitement et sous licence open-source pour auto-hébergement
+- WhisperAI est disponible à un prix très compétitif pour les utilisations plus exhautives
+- Il permet aux entreprises de réduire drastiquement les coûts de transcription manuelle
+- Whisper est capable de traîter énormément de langues avec grande précision, 100+
+- Il élimine le besoin d'outils différents pour chaque langue
+- Il aide énormément avec l'automatisation et le gain de temps :
+    - Grâce à Whisper, on évite la prise de notes manuelle, qui entraîne parfois la perte de détails importants
+    - Grâce à Whisper, on évite la révision de beaucoup d'appels manuellement, qui normalement prendrait beaucoup de temps et ne couvre pas toutes les intéractions
+    - Grâce à Whisper, on peut libérer les employés des tâches administratives répétitives
+    - etc.
+
+Bien sûr, je peux continuer, mais on comprend l'idée.
+
+![alt text](whisperPlans2.png)
+
+<br>
+
+Cette diversité des contextes audio donne à WhisperAI un très grand avantage. En fait, en étant exposé à des accents, des bruits de fond et tant d'environnements variés dès son entraînement, Whisper apprend à traiter des situations proches de celles rencontrés en pratique. 
+
+Cette approche favorise une compréhension plus générale de la parole, plutôt qu'une spécialisation dans un seul type d'enregistrement. 
+
+---
+
+Enfin, pour vraiment faire un résumé sur tout ce qu'on a dit, Whisper, grâce à ces données variés, est devenu un modèle robuste aux bruits de fond, c'est un modèle multilingue, c'est un modèle très général capable de s'adapter à beaucoup de situations et de contextes !
+
+---
+
+<br>
+
+
+### Désavantages
+
+Ces mêmes avantages peuvent devenir des désavantages, dépendant du contexte du fichier audio qu'on veut que Whisper analyse. 
+
+> `Exemple :` <br>
+Quand on veut utiliser Whisper pour transcrire une chanson, Whisper aura plus de mal à bien transcrire les mots qu'un modèle spécialisé dans la transcription des audios accompagnés d'instruments, de bruits de fonds diverses mais toujours en rapport avec la musique, ainsi que plusieurs personnent qui chantent en même temps. 
+
+En fait:
+
+`Chanter ≠ parler`
+
+Il y a une grande différence dans l'analyse des fichiers audios de musique et de conversations normales. Même si les mots sont les mêmes, il y a plusieurs éléments qui ne sont pas les mêmes !
+
+- Rythme différent
+- Voyelles étirés
+- Mélodie qui déforme les phonèmes
+- Instruments qui couvrent la voix
+- Ad-libs, répétiions, l'autotune aussi peut affecter
+
+Résultat: Whisper peut se tromper, halluciner ou simplifier les paroles d'une chanson :(
+
+
+> [!info]
+> J'ai fait une petite recherche personnelle ! <br>
+> Lyrics Transcription / Singing voice recognition (SVR) : <br>
+> - Ces modèles sont entraînés sur des chansons. Il apprennent à gérer la mélodie, le tempo et la répétition de refrains. <br>
+> 
+> `Whisper n'est PAS conçu pour ça à la base` <br>
+> J'ai trouvé un Ai qui peut mieux faire le travail : Music.ai <br>
+> <br>
+> Je vais sûrement l'utiliser, ou le tester au future. Je pense que j'ai vraiment besoin d'un logiciel comme ça, surtout quand il faut que je transcrit les paroles d'une chansons que j'avais écris au passé mais que j'ai perdu ses paroles quelque part.
+
+---
+
+Pour revenir un peu sur la réalité et sortir du domaine de la musique, voici quelques "problèmes" qui arrivent des fois avec Whisper:
+- Whisper peut **halluciner** quand l'audio est très dégradé ou ambigu
+    - En fait, quand les conditions de l'audio ne sont vraiment pas bonnes, Whisper peut halluciner, ou se tromper. Ce comportement est lié au fait que le modèle cherche toujours à prédire le texte le plus probable à partir du signal audio disponible.
+- WhisperAI ne fonctionne pas en **temps réel strict**
+    - En fait, le traitement par morceaux de 30 secondes introduit une latence, ce qui peut être un problème pour des applications qui nécessitent une transcription instantanée
+
+---
+
+
+
+## Sources :
 Github :
 - https://github.com/openai/whisper
 
