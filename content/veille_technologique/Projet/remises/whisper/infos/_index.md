@@ -8,15 +8,21 @@ weight = 1
     [Hugo Relearn Theme](https://mcshelby.github.io/hugo-theme-relearn/index.html)
     pour référence sur comment faire certaines choses. <br>
 > <br>
-> * L'une des choses les plus importantes est que j'ai constaté qu'on peut utiliser du html et ça
+> - L'une des choses les plus importantes est que j'ai constaté qu'on peut utiliser du html et ça
     fonctionne, ce qui facilite énormément les choses!<br>
 > <br>
-> * Ici j'utilise cette façon pour pouvoir changer la taille de l'image, car
-    j'ai essayé cette façon : <br> 
-    ```
-    ![alt text](promptClaude.png){ width=400px }
-    ``` <br>
-    mais le { width=400px } apparaît comme texte et n'affecte pas l'image.
+> - Pour l'atelier, c'est la même application que je vous avais montré lors de la démo. J'ai réglé la petite erreur de Frontend et j'y ai ajouté du css!
+> <br>
+> - Pour finir, je vais refaire une nouvelle application, avec probablement open web ui, dont vous m'avais parlé lors de la démo. Je n'ai pas encore eu le temps de voir
+    ce que c'est exactement, alors je vais voir ce que c'est et soit faire une application en intégrant Whisper avec, ou sinon je vais faire une nouvelle application qui intègre des spectogrammes log-mel. <br>
+> <br>
+> - Voici le lien du repo git qui contiendra ce projet.  <br>
+> https://github.com/ToniEliamokhtar/WhisperAIAmeliore <br>
+> <br>  
+> - Je vais essayer de le finir d'ici mardi le 16, car il me reste encore le projet App mobiles à finir et l'examen de
+    Soutien Technique à faire.  <br>
+> <br>
+> - J'aimerai vous remercier pour votre aide, votre temps et votre compréhension avec moi, j'espère que mon travail vous plaira :) !
 
 
 ## PLAN NOTES DE COURS
@@ -53,4 +59,4 @@ weight = 1
 
 <br>
 
-![alt text](image.png)
+![alt text](whisperTransformer.png)
