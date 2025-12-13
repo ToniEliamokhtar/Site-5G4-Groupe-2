@@ -283,17 +283,17 @@ Github :
 Sites :
 - https://openai.com/fr-FR/index/whisper/
 - https://whisperai.com/
-- https://fortune.com/2023/03/01/openai-chatgpt-api-enterprise-commercial-instacart-shopify-snap-quizlet/
 - https://music.ai/
 
 Youtube :
 - https://youtu.be/ABFqbY_rmEk?si=5cgywGGt3kfzMpZw
 - https://youtu.be/RJUXKy60CXM?si=-u8ZMSlemlJblQHr
 - https://youtu.be/uFOkMme19Zs?si=9T8u1Z6G2ulQGYi5
-- https://en.wikipedia.org/wiki/Spectrogram
 
 Articles:
+- https://en.wikipedia.org/wiki/Spectrogram
 - https://www.freecodecamp.org/news/how-to-turn-audio-to-text-using-openai-whisper/
 - https://www.spocket.co/fr/blogs/comment-fonctionne-shopify
 - https://toptips.fr/quest-ce-quinstacart-comment-ca-marche-et-combien-ca-coute/
 - https://scisimple.com/fr/articles/2025-11-07-les-capacites-polyvalentes-de-reconnaissance-vocale-de-whisper--ak2pzqg
+- https://fortune.com/2023/03/01/openai-chatgpt-api-enterprise-commercial-instacart-shopify-snap-quizlet/

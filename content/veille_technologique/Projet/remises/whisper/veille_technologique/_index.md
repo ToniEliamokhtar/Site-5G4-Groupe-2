@@ -129,16 +129,60 @@ Claude me parle du rapport de Whisper avec l'actualité (2024, ce qui est quand 
 
 ### 5. Est ce que j'ai trouvé une page web qui contient déjà toutes les informations fournis par le llm?
 
-`!!!   À FAIRE APRÈS LES NOTES DE COURS   !!!`
+Non, je n'ai pas trouvé une seule page qui contient déjà toutes les informations fournis par le llm. En fait, j'ai dû chercher beaucoup de sites, d'articles et de vidéos youtube pour récolter toutes les informations dont j'ai eu besoin pour faire mes notes de cours, et l'atelier aussi bien sûr. La page la plus proche, je dirais c'était la page officielle de openAI, mais même là, elle ne contenait qu'une fraction des informations. <br>
+
+En fait, j'aimerai faire un retour sur un point, parce que je pense qu'il est bien important. Je n'avais pas vraiment une seule page, mais plutôt un trio de pages qui se complétaient. C'est la page officielle de [OpenAI](https://openai.com/fr-FR/index/whisper/), la page officielle de [WhisperAI](https://whisperai.com/) et le repos [Github de WhisperAI](https://github.com/openai/whisper?tab=readme-ov-file) qui contenait pas mal d'informations aussi. <br>
+
+Bien sûr, encore là, j'ai dû utiliser d'autres sources, mais ça, je vais en parler dans la prochaine section.
+
 
 ## Sources choisies pour les notes de cours
 
-`!!!   À FAIRE APRÈS LES NOTES DE COURS   !!!`
+Pour cette section, je vais la diviser en plusieurs parties dépendant du type de source.
+
+
+### Youtube
+
+J'ai regardé vraiment beaucoup de vidéos youtube, mais je n'ai pas trouvé beaucoup de bonnes vidéos qui donnaient des informations importantes et cruciales. Cependant, j'ai fini par trouver quand même trois bonnes vidéos faites par différentes personnes. D'ailleurs, l'une d'entre elles a tout simplement une voix IA qui parle, mais il y a de bonnes informations quand même.
+
+Voici les trois vidéos:
+- https://youtu.be/ABFqbY_rmEk?si=5cgywGGt3kfzMpZw
+- https://youtu.be/RJUXKy60CXM?si=-u8ZMSlemlJblQHr
+- https://youtu.be/uFOkMme19Zs?si=9T8u1Z6G2ulQGYi5
+
+
+### Sites
+
+Pour les sites, j'ai ouvert beaucoup de sites, mais pas beaucoup d'entre eux m'aidaient. J'ai fini par me concentrer sur deux sites seulement, le site officiel de [OpenAI](https://openai.com/fr-FR/index/whisper/) et le site officiel de [WhisperAI](https://whisperai.com/) pour récolter les informations et mieux comprendre le fonctionnement de WhisperAI.
+
+Il y a un troisième site que j'ai utilisé, c'est le site de [Music.ai](https://music.ai/). Cependant, ce site ne m'a aucunement aidé avec la compréhension de WhisperAI. En fait, c'est un site qui est un peu semblable à WhisperAI, mais ce site offre un AI capable de transcrire les paroles de chansons ! Il est spécialisé dans la transcription de paroles de chansons. Je vais le tester après le jour de l'an, quand je vais me remettre à écrire des chansons, et je verrai son efficacité! Je suis vraiment excité à le tester :)
+
+
+### Articles
+
+Pour les articles, c'est eux qui m'ont le plus aidé dans ma recherche sur WhisperAI. C'est eux qui m'ont donné le plus d'informations. Par exemple, quand je cherchais un site qui parlait d'un certain sujet, le seul truc que je trouvais était pleins d'articles. Je n'arrivais pas à trouver des sites avec des informations vraiment précises et qui peuvent m'aider à donner des exemples et parler avec précisions. Bien sûr, après avoir lu et vérifié les informations contenus dans plusieurs articles, j'ai pu continuer avec confiance que ce que j'écris est bien et correct!
+
+J'ai dû inclure un article de [Wikipedia](https://en.wikipedia.org/wiki/Spectrogram), bien que je ne voulais rien prendre de ce site puisque n'importe qui peut écrire dedans, mais je ne trouvais aucun site qui expliquait bien les spectogrammes. Du coup j'ai finis par lire l'article de Wikipedia et honnêtement il m'a énormément aidé à comprendre comment WhisperAI arrive à lire les fichiers audio! Je vous conseillerai de le lire, il est vraiment bien écrit.
+
+### Github
+
+Finalement, j'ai utilisé le repos [Github de WhisperAI](https://github.com/openai/whisper), qui était la principal source d'informations pour faire mon projet.
+
 
 ## Article récent qui traite de Whisper
 
-`!!!   À FAIRE APRÈS LES NOTES DE COURS   !!!`
+J'ai utilisé **six** articles qui traitent de Whisper. Plusieurs d'entre eux parlaient en général sur comment Whisper fonctionne, ce que WhisperAI est vraiment, mais il y en avait certains qui donnaient des informations plus exactes. Par exemple, cet article de [Fortune](https://fortune.com/2023/03/01/openai-chatgpt-api-enterprise-commercial-instacart-shopify-snap-quizlet/) écrit par Jeremy Kahn le premier Mars 2023. Dans cet article, il parlait des entreprises qui sont en relation avec WhisperAI, qui l'utilisent, et d'ailleurs c'est là que j'ai trouvé que la compagnie Speak est la première à vraiment intégrer WhisperAI dans son application/site Web. J'en parle plus de cette compagnie dans les notes de cours !
+
 
 ## Quelques sources réseaux sociaux / chaîne youtube
 
-`!!!   À FAIRE APRÈS LES NOTES DE COURS   !!!`
+Comme je l'ai déjà dis dans l'autre section, j'ai utilisé trois vidéos youtube, qui pour la plupart parlait de WhisperAI en général. Il y a une seule d'entre ces trois vidéos qui donnait un bon exemple d'utilisation de WhisperAI, et je m'en suis inspiré pour faire mon application à moi. Elle a été faite par Kevin Stratvert il y a 2 ans.<br>
+La voici :<br>
+https://youtu.be/ABFqbY_rmEk?si=ta8PvWXqNjTgE58l
+
+Il y a une autre vidéo aussi, c'est un québécois qui l'a fait, mais en anglais. C'est la vidéo qui m'a aidé le plus, car il donnait vraiment beaucoup d'informations importantes et pertinentes! Je vous conseillerais de la regarder, elle est vraiment bien faite! <br>
+La voici : <br>
+https://youtu.be/uFOkMme19Zs?si=IJVWysebo8usHv-J
+
+Pour finir, voici la vidéo faite par un IA, mais qui m'a quand même bien aidé : <br>
+https://youtu.be/RJUXKy60CXM?si=rbESuXevOv9mM09c
