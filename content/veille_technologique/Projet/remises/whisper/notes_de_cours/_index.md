@@ -15,7 +15,13 @@ Il faut savoir que WhisperAI a trois principales fonctionnalités :
 - Traduction vers l'anglais
 - Identification de la langue
 
-Whisper est un outil très utile et polivalent, puisqu'on peut aussi le lancer sur mobile, ordinateur ou Raspberry Pi
+Whisper est un outil très utile et polyvalent, puisqu'on peut aussi le lancer sur mobile, ordinateur ou Raspberry Pi. <br>
+Il prend plusieurs formats de fichiers audio et vidéo jusqu'à 1GB, comme MP3, WAV, M4A, WEBM ainsi que des formats MP4 avec un traitement et transcription rapides. <br>
+Sur le site de WhisperAI, c'est dit qu'il peut exporter plusieurs formats de fichiers, comme PDF, DOCX, TXT out des fichiers de sous-titres SRT avec des horodatages pour le montage vidéo.
+
+Bien qu'il y a plusieurs plans qui donnent de plus en plus d'accès à de plus en plus d'usage, mais le modèle basique gratuit offre 5 minutes par mois, exportation basique et support email.
+
+![alt text](WhisperPlans.png)
 
 ### Entraînement
 
@@ -31,10 +37,10 @@ En fait, normalement, les ASR classique sont très souvent entraînés sur quelq
 
 ***Données et provenance***
 
-Whisper a été entraîné majoritairement sur des donées qui proviennent du Web. Cela peut inclure des enregistrements audio très variées, comme :
+Whisper a été entraîné majoritairement sur des données qui proviennent du Web. Cela peut inclure des enregistrements audio très variées, comme :
 - Des entrevues
 - Des conférences
-- Des vidéos (que ce soit de Youtube ou de n'importe quelle platforme)
+- Des vidéos (que ce soit de Youtube ou de n'importe quelle plateforme)
 - Des podcasts 
 - Et pleins de discussions enregistrées dans de plusieurs contextes réels et variés. 
 
@@ -43,7 +49,7 @@ Ces enregistrements regroupent *plusieurs langues et accents* et portent sur des
 Contrairement à des données enregistrées spécifiquement pour l'entraînement d'un modèle de reconnaissance vocale, ces fichiers audio ne sont pas produits dans des conditions idéales et contrôlées!
 
 Voici une information résultant de l'entraînement si général de whisper:  <br>
-- Whisper est capable de fonctionner avec plus de 96 langues différentes !!
+- Whisper est capable de fonctionner avec plus de 100 langues différentes !!
 
 <br>
 
@@ -66,20 +72,20 @@ Si on parle d'une entreprise qui **utilise directement WhisperAI**, on parlera p
 
 <br>
 
-WhisperAI, altérieurement, peut-être utilisé dans plusieurs contextes. <br>
+WhisperAI, ultérieurement, peut-être utilisé dans plusieurs contextes. <br>
 Par exemple :
 - **Transcription audio à texte**
     - Réunions, entrevues, podcasts, enregistrements audio, vidéos
 - **Reconnaissance automatique des langues**
     - Détection et transcription de plusieurs langues
-- **Tranduction de la parole vers le texte écrit**
+- **Traduction de la parole vers le texte écrit**
     - Audio dans une langue étrangère --> texte en anglais par exemple
 - **Apprentissage des langues**
     - Analyse de la prononciation et correction des erreurs à l'oral
 - **Génération de sous-titres**
     - Création automatique de sous-titres pour les contenus audiovisuels
 - **Interaction vocale avec des applications**
-    - Conversion de la voix de l'utilisateur en texte afin d'intéragir et parler avec certains systèmes intelligents implémentés dans des applications
+    - Conversion de la voix de l'utilisateur en texte afin d'interagir et parler avec certains systèmes intelligents implémentés dans des applications
 
 <br> 
 
@@ -97,7 +103,7 @@ Il y a donc une différence importante entre ces deux types de données. Dans le
 À l'inverse, les **données faiblement supervisées** permettent d'entraîner le modèle sur un volume beaucoup plus grand de fichiers audio ! Même si certaines transcriptions contiennent des fautes ou des imprécisions, WhisperAI est quand même capable d'apprendre à repérer des patterns récurrents dans la parole et de s'améliorer malgré les erreurs. Le modèle n'apprend donc pas seulement à recopier un texte, mais à faire des prédictions de plus en plus cohérentes à partir du signal audio, et je vais parler de comment WhisperAI arrive à transcrire les fichiers audio un peu plus tard.
 
 Ce qu'il faut **retenir** est que ce choix d'entraînement représente un compromis important :
-WhisperAI sacrifie une partie de la précision individuelle des annotations pour qu'il puisse bénéficier d'une quanitité massive de données sur lesquels il peut s'entraîner. Cette approche explique en grande partie pourquoi le modèle est capable de fonctionner dans des contextes très variés, même lorsque les conditions audio ne sont pas idéales.
+WhisperAI sacrifie une partie de la précision individuelle des annotations pour qu'il puisse bénéficier d'une quantité massive de données sur lesquels il peut s'entraîner. Cette approche explique en grande partie pourquoi le modèle est capable de fonctionner dans des contextes très variés, même lorsque les conditions audio ne sont pas idéales.
 
 
 
