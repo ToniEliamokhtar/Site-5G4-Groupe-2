@@ -20,7 +20,7 @@ Selon ce qui est écrit dans le répertoire [Github](https://github.com/openai/w
 > [!info]
 > `ATTENTION !!`<br>
 > - Linux utilise Python pour son fonctionnement interne, donc on ne doit jamais modifier la
-    version système. Pour pouvoir travailler avec Whisper, on va installer Python 3.9 séparément et on l'utilisera via un environnement isolé, et ce en utilisant Docker.
+    version système. Pour pouvoir travailler avec Whisper, on va installer Python 3.10 séparément et on l'utilisera via un environnement isolé, et ce en utilisant Docker.
 
 Tout d'abord, il faut vérifier la verison de Python qu'on a sur notre système Linux. Si vous avez déjà la bonne version d'installée, vous pouvez passer à la prochaine étape, Installer Whisper. <br>
 Dans mon cas personnel, sur mon Linux Mint, j'ai la version 3.12.3. Pour vous, cela peut-être différent, mais ça n'affectera pas notre travail.
