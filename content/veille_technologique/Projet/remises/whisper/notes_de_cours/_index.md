@@ -81,7 +81,7 @@ Ce que cela sous entend et qu'on sait déjà est que, en fait, WhisperAI apprend
 Cette approche distingue WhisperAI de nombreux modèles de reconnaissance vocale plus classique, qui sont souvent entraînés pour une seule tâche ou une seule langue. <br>
 Du coup, l'apprentissage multitâche contribue au caractère généraliste de WhisperAI et prépare la transition vers son fonctionnement interne que je vais expliquer dans la section suivante !
 
-Si on compare Whisper avec un autre modèle qui a été entraîné sur une tâche précise et qu'on leur donne une tâche précise, Whisper ne sera pas aussi efficace que l'autre modèle. Cependant, on peut prendre Whisper et entraîner une partie de ce modèle sur des tâches précises avant de l'utiliser. Cette façon de faire aide énormément à avoir des modèles beaucoup plus efficaces et polivalents.
+Si on compare Whisper avec un autre modèle qui a été entraîné sur une tâche précise et qu'on leur donne une tâche précise, Whisper ne sera pas aussi efficace que l'autre modèle. Cependant, on peut prendre Whisper et entraîner une partie de ce modèle sur des tâches précises avant de l'utiliser. Cette façon de faire aide énormément à avoir des modèles beaucoup plus efficaces et polyvalents.
 
 ![alt text](whisperGeneral.png)
 
@@ -137,24 +137,24 @@ WhisperAI prend plusieurs formats de fichiers, MP3, WAV, M4A, etc. L'ordinateur 
 
 Quand Whisper reçoit le fichier, il a un grand problème. Il ne peut pas écouter un bruit et comprendre. Pour bien comprendre, whisper utilise une architecture de réseau de neurones **Transformer Encodeur-Décodeur** pour traiter des données séquentielles.
 
-1. Pour pouvoir lire l'audio, Whisper commence par découper le fichier en `segments de 30 secondes`. Les fichiers peuvent être longs, oui, mais il faut savoir que WhisperAI travaille par segments. Chaque segment fait 30 secondes. Cela permet au modèle de ne pas tout traîter d'un coup, ça rend le traîtement beaucoup plus stable et beaucoup plus précis.
+1. Pour pouvoir lire l'audio, Whisper commence par découper le fichier en `segments de 30 secondes`. Les fichiers peuvent être longs, oui, mais il faut savoir que WhisperAI travaille par segments. Chaque segment fait 30 secondes. Cela permet au modèle de ne pas tout traiter d'un coup, ça rend le traîtement beaucoup plus stable et beaucoup plus précis.
 
 2. Avant même de commencer à analyser le fichier de son, il convertis les segments de 30 secondes en `spectogramme log-mel`, ou en d'autres mots, une représentation visuelle du spectre des fréquences d'un signe alors qu'il varie avec le temps. Chaque colonne représente un petit moment du son. À ce stade, Whisper ne voit pas du texte, mais une **séquence de vecteurs numériques**.
 ![alt text](spectogram.png)
 > Ceci est un spectogram des mots parlés : "nineteenth century". <br>
 > On peut voir sur l'axe x le temps augmenter et sur l'axe y les fréquences.
 
-3. Et là, on entre dans la phase de prétraitement. Avant d'envoyer ces vecteurs numériques dans le Transformer, Whisper applique deux couches de **convolutions 1D (2x Conv1D)** suivies d'une fonction d'activation **GELU**. Ces couches servent à extraire des patterns locaux dans le spectogramme, comme des variations rapides de fréquences ou des débuts et fins de sons par exemple. Elles permettent aussi de compresser l'infromation et de réduire le bruit, afin de produire une représentation plus stable et plus exploitable pour la suite du modèle.
+3. Et là, on entre dans la phase de prétraitement. Avant d'envoyer ces vecteurs numériques dans le Transformer, Whisper applique deux couches de **convolutions 1D (2x Conv1D)** suivies d'une fonction d'activation **GELU**. Ces couches servent à extraire des patterns locaux dans le spectogramme, comme des variations rapides de fréquences ou des débuts et fins de sons par exemple. Elles permettent aussi de compresser l'information et de réduire le bruit, afin de produire une représentation plus stable et plus exploitable pour la suite du modèle.
 
 4. Avant d'envoyer les informations à l'encodeur, WhisperAI fait l'ajout de l'information temporelle (Positional Encoding). En fait, Un Transformer, par défaut, ne comprend pas tout seul l'ordre des données. Pour lui, une séquence n'a pas de notion de "avant" ou "après". C'est pour cette raison que Whisper ajoute ce qu'on appelle un **encodage positionnel sinusoïdal** aux vecteurs obtenus après les convolutions. Cet encodage permet au modèle de reconnaissance vocale de savoir exactement à quel moment du segment audio chaque information apparaît. Cela est essentiel pour comprendre la parole et prédire les mots, car oui, Whisper **prédit** les mots, et pour ce faire, il dépend fortement de l'ordre des sons dans le temps.
 
 5. Maintenant, on passe à l'analyse globale qui est faite par l'encodeur Transformer. Une fois que cette préparation (étape 4) est terminée, les données sont envoyées dans l'**encodeur** du Transformer. L'encodeur analyse alors l'ensemble du segment audio en tenant compte à la fois :
     - Du contenu fréquentiel (ce qui est dit, les mots)
     - Et du contexte temporel (quand c'est dit)
-    À la sorte de l'encodeur, Whisper dispose d'une représentation interne claire et riche du signal audio, prêt donc à être utilisée pour la génération du texte. Parcontre, il faut comprendre que **aucun mot n'a encore été produit à ce stade**.
+    À la sorte de l'encodeur, Whisper dispose d'une représentation interne claire et riche du signal audio, prêt donc à être utilisée pour la génération du texte. Par contre, il faut comprendre que **aucun mot n'a encore été produit à ce stade**.
 
 6. Avant de décoder le texte, on doit passer par une autre phase de préparation. En fait, une fois que l'encodeur a terminé son travail, Whisper reçoit une **séquence de tokens spéciaux**. Ces tokens peuvent préciser plusieurs choses, dont :
-    - La langue du texte (Englais, Français, etc.)
+    - La langue du texte (Anglais, Français, etc.)
     - La tâche à effectuer (Transcribe OU Translate)
     - Le début de la transcription (SOT, Start of Transcipt)
 
@@ -174,7 +174,7 @@ C'est d'ailleurs grâce à cette interaction constante entre l'encodeur et le d�
 
 9. Avant de finir, on passe à l'**encodage positionnel côté texte**. Ce que cela veut dire est que du côté texte, Whisper utilise un encodage positionnel appris. Ce dit encodage positionnel appris permet au modèle de comprendre l'ordre des mots dans la phrase et de conserver une structure grammaticale cohérente pendant toute la génération. C'est ce qui lui permet de s'assurer que tout est en ordre et que le texte généré est bien structuré à la fin.
 
-10. Finalement, on arrive à la dernière étape, la fin du segment et le passage au suivant. Lorsque le segment de 30 secondes est entièrement transcrit ou qu'un token de fin est généré, Whisper termine le traitement de cce segment. Il passe ensuite au segment suivant et répète exactement ces 10 étapes jusqu'à ce que tout le fichier audio soit traité.
+10. Finalement, on arrive à la dernière étape, la fin du segment et le passage au suivant. Lorsque le segment de 30 secondes est entièrement transcrit ou qu'un token de fin est généré, Whisper termine le traitement de ce segment. Il passe ensuite au segment suivant et répète exactement ces 10 étapes jusqu'à ce que tout le fichier audio soit traité.
 
 ![alt text](whisperArchitecture.png)
 
@@ -184,10 +184,10 @@ C'est d'ailleurs grâce à cette interaction constante entre l'encodeur et le d�
 ### Avantages techniques
 
 Whisper est utilisé pour plusieurs raisons. Il est l'outil que beaucoup d'organisations choisissent, et ce pour des raisons stratégiques :
-- WhisperAI est disponible grauitement et sous licence open-source pour auto-hébergement
+- WhisperAI est disponible gratuitement et sous licence open-source pour auto-hébergement
 - WhisperAI est disponible à un prix très compétitif pour les utilisations plus exhautives
 - Il permet aux entreprises de réduire drastiquement les coûts de transcription manuelle
-- Whisper est capable de traîter énormément de langues avec grande précision, 100+
+- Whisper est capable de traiter énormément de langues avec grande précision, 100+
 - Il élimine le besoin d'outils différents pour chaque langue
 - Il aide énormément avec l'automatisation et le gain de temps :
     - Grâce à Whisper, on évite la prise de notes manuelle, qui entraîne parfois la perte de détails importants
@@ -256,7 +256,25 @@ Pour revenir un peu sur la réalité et sortir du domaine de la musique, voici q
 
 ---
 
+### Modèles
 
+Pour finir, je vais parler des modèles disponibles. 
+
+![alt text](whisperModels.png)
+
+Comme on peut voir dans l'image, il existe **six modèles différents**, de tailles différentes, dont quatre versions avec seulement de l'Anglais. Ces modèles offrent des compromis différents de vitesse, de précisions et de ressources matérielles différents.
+
+Ces modèles vont de `tiny` à `large` (et `turbo`). 
+
+Les modèles les plus petits (`tiny`, `base`) sont très rapides et demandent peu de mémoire. Ils sont pratiques pour des tests rapides, des machines peu puissantes ou des usages où la vitesse est plus importante que la précision. En contrepartie, ils peuvent faire plus d'erreurs, surtout lorsque l'audio est complexe ou bruité.
+
+Les modèles intermédiaires (`small`, `medium`) offrent un bon équilibre. Ils sont plus précis que les plus petits modèles et restent relativement raisonnables en terme de consommation de mémoire. Ce sont souvent ceux qui sont utilisés dans des contextes plus réels, surtout quand on cherche un bon compromis entre performance et coût.
+
+Le modèle `large` est le plus précis de tous les modèles. Il est surtout efficace pour gérer les accents, le bruit de fond et les langues moins courantes. Cependant, il est aussi le plus **lent** et le plus **exigeant** en ressources, ce qui limite grandement son utilisation à des machines plus puissantes.
+
+Pour finir, il existe le modèle `turbo` qui est un peu particulier, comparé aux autres. En fait, il est conçu pour être **beaucoup plus rapide** que le modèle `large`, tout en conservant une bonne précision. Son objectif principal est d'offrir des performances élevées lorsque la vitesse est un facteur important, par exemple pour des volumes élevés de transcription ou des usages qui seraient plus interactifs. Il ne fait pas par contre oublier qu'il consomme quand même beaucoup de ressources, plus que le modèle `medium`.
+
+---
 
 ## Sources :
 Github :
